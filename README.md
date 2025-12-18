@@ -1,14 +1,18 @@
 # Sales Store Dashboard
 
-A modern, responsive web application featuring a login interface and embedded Power BI dashboard.
+[![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen?style=for-the-badge&logo=github)](https://sales-dashboard-rs.vercel.app)
+
+A modern, responsive web application featuring a secure login interface and embedded Power BI dashboard with beautiful UI animations.
 
 ## 🚀 Features
 
-- **Authentication System**: Secure login with session management
-- **Power BI Integration**: Embedded interactive dashboard
-- **Responsive Design**: Mobile-friendly layout
-- **Modern UI**: Glassmorphism effects, smooth animations, and gradient backgrounds
-- **Pure Vanilla Stack**: No frameworks or libraries - just HTML, CSS, and JavaScript
+- **🔐 Secure Authentication**: Base64 encoded credentials with brute-force protection
+- **📊 Power BI Integration**: Embedded interactive sales dashboard
+- **📱 Fully Responsive**: Optimized for desktop, tablet, and mobile
+- **✨ Modern UI**: Clean minimal design with gradient backgrounds
+- **🎯 Pure Vanilla Stack**: No frameworks - just HTML, CSS, and JavaScript
+- **💬 Inspirational Quotes**: Random data quotes on dashboard loading
+- **🔒 Session Management**: Secure token-based session handling
 
 ## 📁 Project Structure
 
@@ -28,6 +32,8 @@ Ecommerce_Dashboard/
 
 - **Username**: `admin`
 - **Password**: `admin123`
+
+> ⚠️ **Security Note**: Credentials are Base64 encoded (not plain text) with brute-force protection for academic demonstration purposes.
 
 ## 🛠️ Technologies Used
 

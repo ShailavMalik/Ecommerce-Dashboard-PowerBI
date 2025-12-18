@@ -1,18 +1,7 @@
-/**
- * ============================================================
- * DASHBOARD AUTHENTICATION CHECK
- * ============================================================
- * Validates user session before allowing access to dashboard.
- * Uses sessionStorage for session management.
- * ============================================================
- */
-
-// Check authentication on page load
+/* Authentication check with session validation */
 if (sessionStorage.getItem("isAuthenticated") !== "true") {
-  // Not authenticated - redirect to login page
   window.location.href = "index.html";
 } else {
-  // Validate session token hasn't expired
   const sessionToken = sessionStorage.getItem("sessionToken");
   if (sessionToken) {
     try {
@@ -24,20 +13,18 @@ if (sessionStorage.getItem("isAuthenticated") !== "true") {
         const sessionDuration = 24 * 60 * 60 * 1000; // 24 hours
 
         if (now - timestamp >= sessionDuration) {
-          // Session expired - clear and redirect
           sessionStorage.clear();
           window.location.href = "index.html";
         }
       }
     } catch (e) {
-      // Invalid token - clear and redirect
       sessionStorage.clear();
       window.location.href = "index.html";
     }
   }
 }
 
-// Array of data-related quotes
+// Data quotes for loading screen
 const dataQuotes = [
   {
     text: "Without data, you're just another person with an opinion.",
@@ -73,7 +60,7 @@ const dataQuotes = [
   },
 ];
 
-// Select random quote and display it
+// Display random quote
 const quoteLoader = document.getElementById("quoteLoader");
 if (quoteLoader) {
   const randomQuote = dataQuotes[Math.floor(Math.random() * dataQuotes.length)];
@@ -85,7 +72,7 @@ if (quoteLoader) {
     quoteAuthor.textContent = `— ${randomQuote.author}`;
   }
 
-  // Hide quote loader after 3 seconds
+  // Hide after 3 seconds
   setTimeout(() => {
     quoteLoader.style.opacity = "0";
     setTimeout(() => {
@@ -94,7 +81,7 @@ if (quoteLoader) {
   }, 3000);
 }
 
-// About Button - Open Modal
+// Modal functionality
 const aboutButton = document.getElementById("aboutButton");
 const modalOverlay = document.getElementById("modalOverlay");
 const closeModal = document.getElementById("closeModal");
@@ -104,13 +91,11 @@ aboutButton.addEventListener("click", () => {
   document.body.style.overflow = "hidden";
 });
 
-// Close Modal - Click Close Button
 closeModal.addEventListener("click", () => {
   modalOverlay.classList.remove("show");
   document.body.style.overflow = "auto";
 });
 
-// Close Modal - Click Outside
 modalOverlay.addEventListener("click", (e) => {
   if (e.target === modalOverlay) {
     modalOverlay.classList.remove("show");
@@ -118,7 +103,6 @@ modalOverlay.addEventListener("click", (e) => {
   }
 });
 
-// Close Modal - Press Escape Key
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape" && modalOverlay.classList.contains("show")) {
     modalOverlay.classList.remove("show");
@@ -126,26 +110,21 @@ document.addEventListener("keydown", (e) => {
   }
 });
 
-// Logout Button
+// Logout
 const logoutButton = document.getElementById("logoutButton");
 
 logoutButton.addEventListener("click", () => {
-  // Confirm logout
   if (confirm("Are you sure you want to logout?")) {
-    // Clear session storage
     sessionStorage.clear();
-
-    // Add fade out animation
     document.body.style.animation = "fadeOut 0.3s ease forwards";
 
-    // Redirect to login after animation
     setTimeout(() => {
       window.location.href = "index.html";
     }, 300);
   }
 });
 
-// Hide loading spinner when iframe loads
+// iframe loading
 const iframe = document.querySelector(".dashboard-iframe");
 const loadingSpinner = document.querySelector(".loading-spinner");
 
@@ -155,7 +134,6 @@ iframe.addEventListener("load", () => {
   }, 500);
 });
 
-// Error handling for iframe
 iframe.addEventListener("error", () => {
   loadingSpinner.innerHTML =
     '<p style="color: #dc2626; font-size: 14px;">Failed to load dashboard. Please check your connection.</p>';
