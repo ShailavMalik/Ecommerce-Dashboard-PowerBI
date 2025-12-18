@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Store Dashboard</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+
+<body>
+    <!-- Loading Quote Screen -->
+    <div class="quote-loader" id="quoteLoader">
+        <div class="quote-container">
+            <div class="quote-icon">📊</div>
+            <blockquote class="quote-text">
+                "Without data, you're just another person with an opinion."
+            </blockquote>
+            <p class="quote-author">— W. Edwards Deming</p>
+            <div class="loader-dots">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-title">Sales Store Dashboard</div>
+        <div class="navbar-buttons">
+            <button class="nav-button" id="aboutButton">About</button>
+            <button class="nav-button logout-button" id="logoutButton">Logout</button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="dashboard-container">
+            <div class="dashboard-header">
+                <h2>Sales Performance Overview</h2>
+                <p>Real-time insights and analytics powered by Power BI</p>
+            </div>
+            <div class="dashboard-iframe-container">
+                <div class="loading-spinner"></div>
+                <iframe class="dashboard-iframe"
+                    src="https://app.powerbi.com/view?r=eyJrIjoiYzVlMDQ4OTUtZjVhOC00MzA5LWJjNzYtNjQ4MTRhY2I3NmM0IiwidCI6ImQyMzhkMDVhLWJmMzYtNGJlNy1iMjM4LTQwMjJjY2ViNzU3OCJ9"
+                    allowfullscreen="true" title="Sales Dashboard">
+                </iframe>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-text">
+            <span>Designed with</span>
+            <span class="heart">❤️</span>
+            <span>by</span>
+            <span class="creators">Ritika & Anushka</span>
+        </div>
+    </footer>
+
+    <!-- Modal -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>About This Project</h3>
+                <button class="close-button" id="closeModal">×</button>
+            </div>
+            <div class="modal-content">
+                <h4>Project Name:</h4>
+                <p><strong>Sales Store Dashboard</strong></p>
+
+                <h4>Description:</h4>
+                <p>This dashboard visualizes sales performance, customer segments, and regional insights using Power BI.
+                    It provides real-time analytics and interactive data exploration to help make informed business
+                    decisions.</p>
+
+                <h4>Technology Used:</h4>
+                <ul>
+                    <li>Power BI</li>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JavaScript</li>
+                </ul>
+
+                <h4>Contributors:</h4>
+                <div class="contributors">
+                    <a href="https://www.linkedin.com/in/ritika-sharma-012979398/" target="_blank" class="contributor-card"
+                        title="Ritika Sharma">
+                        <div class="contributor-avatar">RS</div>
+                        <h5>Ritika Sharma</h5>
+                        <p>Frontend Developer</p>
+                    </a>
+                    <a href="https://linkedin.com/in/anushka" target="_blank" class="contributor-card" title="Anushka">
+                        <div class="contributor-avatar">A</div>
+                        <h5>Anushka</h5>
+                        <p>UI/UX Designer</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/dashboard.js"></script>
+</body>
+
+</html>
