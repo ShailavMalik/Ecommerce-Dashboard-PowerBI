@@ -58,6 +58,46 @@ const dataQuotes = [
     text: "Data beats emotions.",
     author: "Sean Rad",
   },
+  {
+    text: "Data will talk to you if you're willing to listen.",
+    author: "Jim Bergeson",
+  },
+  {
+    text: "Without big data, you are blind and deaf and in the middle of a freeway.",
+    author: "Geoffrey Moore",
+  },
+  {
+    text: "Data are just summaries of thousands of stories – tell a few of those stories.",
+    author: "Chip & Dan Heath",
+  },
+  {
+    text: "Errors using inadequate data are much less than those using no data at all.",
+    author: "Charles Babbage",
+  },
+  {
+    text: "The most valuable commodity I know of is information.",
+    author: "Gordon Gekko",
+  },
+  {
+    text: "Data scientists are involved with gathering data, massaging it into a tractable form.",
+    author: "Mike Loukides",
+  },
+  {
+    text: "Big data is at the foundation of all the megatrends that are happening.",
+    author: "Chris Lynch",
+  },
+  {
+    text: "Every company has big data in its future, and every company will eventually be in the data business.",
+    author: "Thomas H. Davenport",
+  },
+  {
+    text: "You can have data without information, but you cannot have information without data.",
+    author: "Daniel Keys Moran",
+  },
+  {
+    text: "Numbers have an important story to tell. They rely on you to give them a voice.",
+    author: "Stephen Few",
+  },
 ];
 
 // Display random quote
@@ -72,14 +112,31 @@ if (quoteLoader) {
     quoteAuthor.textContent = `— ${randomQuote.author}`;
   }
 
-  // Hide after 3 seconds
+  // Hide after 5 seconds
   setTimeout(() => {
     quoteLoader.style.opacity = "0";
     setTimeout(() => {
       quoteLoader.classList.add("hide");
     }, 500);
-  }, 3000);
+  }, 5000);
 }
+
+// Theme Toggle
+const themeToggle = document.getElementById("themeToggle");
+const themeIcon = themeToggle.querySelector(".theme-icon");
+const currentTheme = localStorage.getItem("theme") || "dark";
+
+if (currentTheme === "light") {
+  document.body.classList.add("light-theme");
+  themeIcon.textContent = "🌙";
+}
+
+themeToggle.addEventListener("click", () => {
+  document.body.classList.toggle("light-theme");
+  const isLight = document.body.classList.contains("light-theme");
+  themeIcon.textContent = isLight ? "🌙" : "☀️";
+  localStorage.setItem("theme", isLight ? "light" : "dark");
+});
 
 // Modal functionality
 const aboutButton = document.getElementById("aboutButton");

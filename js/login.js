@@ -3,6 +3,23 @@
  * NOT for production use - server-side authentication required
  */
 
+// Theme Toggle
+const themeToggleLogin = document.getElementById("themeToggleLogin");
+const themeIconLogin = themeToggleLogin?.querySelector(".theme-icon");
+const currentTheme = localStorage.getItem("theme") || "dark";
+
+if (currentTheme === "light") {
+  document.body.classList.add("light-theme");
+  if (themeIconLogin) themeIconLogin.textContent = "🌙";
+}
+
+themeToggleLogin?.addEventListener("click", () => {
+  document.body.classList.toggle("light-theme");
+  const isLight = document.body.classList.contains("light-theme");
+  if (themeIconLogin) themeIconLogin.textContent = isLight ? "🌙" : "☀️";
+  localStorage.setItem("theme", isLight ? "light" : "dark");
+});
+
 // Base64 encoded credentials (admin/admin123)
 const ENCODED_USERNAME = "YWRtaW4=";
 const ENCODED_PASSWORD = "YWRtaW4xMjM=";
